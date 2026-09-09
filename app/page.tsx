@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { Button } from "@/components/ui";
 
 export default function Home() {
   return (
@@ -63,6 +64,9 @@ export default function Home() {
             Documentation
           </a>
         </div>
+        <Button variant="primary">Primary</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="ghost">Ghost</Button>
       </main>
     </div>
   );

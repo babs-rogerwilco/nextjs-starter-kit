@@ -1,0 +1,70 @@
+@use 'sass:color';
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$space-2;
+  border: 1px solid transparent;
+  border-radius: v.$radius-sm;
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color v.$transition-fast,
+    border-color v.$transition-fast,
+    color v.$transition-fast;
+
+  @include m.focus-ring;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.primary {
+  background: v.$color-brand-red;
+  color: v.$color-white;
+
+  &:hover:not(:disabled) {
+    background: color.adjust(v.$color-brand-red, $lightness: -8%);
+  }
+}
+
+.secondary {
+  background: v.$color-white;
+  color: v.$color-brand-black;
+  border-color: v.$color-neutral-300;
+
+  &:hover:not(:disabled) {
+    background: v.$color-neutral-50;
+  }
+}
+
+.ghost {
+  background: transparent;
+  color: v.$color-brand-black;
+
+  &:hover:not(:disabled) {
+    background: v.$color-neutral-100;
+  }
+}
+
+.sm {
+  padding: v.$space-2 v.$space-3;
+  font-size: v.$font-size-sm;
+}
+
+.md {
+  padding: v.$space-3 v.$space-4;
+  font-size: v.$font-size-base;
+}
+
+.lg {
+  padding: v.$space-4 v.$space-6;
+  font-size: v.$font-size-lg;
+}
