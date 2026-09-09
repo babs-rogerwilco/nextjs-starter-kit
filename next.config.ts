@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
+import path from 'node:path';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  sassOptions: {
+    includePaths: [path.join(process.cwd(), 'styles')],
+  },
 };
 
 export default nextConfig;
