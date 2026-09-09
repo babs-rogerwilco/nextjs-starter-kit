@@ -2,3 +2,5 @@ allowBuilds:
   '@parcel/watcher': true
   sharp: false
   unrs-resolver: false
+  esbuild: true
+  core-js-pure: true
