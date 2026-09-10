@@ -14,9 +14,9 @@ package), Zod, pnpm. Layout inspiration: isuzu.co.za, restructured as
 
 ```bash
 pnpm install
-pnpm dev        # http://localhost:3000
-pnpm storybook  # http://localhost:6006
-pnpm test       # vitest watch mode
+pnpm dev        # http://localhost:3000 (To see app)
+pnpm storybook  # http://localhost:6006 (To see app stories)
+pnpm test       # vitest watch mode (To run tests)
 ```
 
 ---
@@ -103,6 +103,65 @@ Used like this:
 
 ```bash
 import { Dialog, Slot } from 'radix-ui';
+```
+
+### Step 5: Create components/ui
+
+Create the folder `components/ui/` in the root directory. Create components inside it. 
+
+e.g. `components/ui/button/button.tsx` and its styling in `components/ui/button/button.module.scss`
+
+### Step 6: Install Vitest + React Testing Library
+
+```bash
+pnpm add -D vitest @vitejs/plugin-react jsdom @testing-library/react @testing-library/dom @testing-library/jest-dom @testing-library/user-event vite-tsconfig-paths @vitest/coverage-v8
+```
+
+| Package | Role |
+|---|---|
+| `vitest` | Test runner itself, working alongside Next.js |
+| `@vitejs/plugin-react` | Lets Vitest understand JSX/TSX |
+| `jsdom` | Simulates a browser DOM in Node, so components can actually render in a test |
+| `@testing-library/react` | Renders React components into simulated DOM and gives you query helpers (getByRole, etc.) |
+| `@testing-library/dom` | React Testing Library |
+| `@testing-library/jest-dom` | Adds readable matchers like toBeInTheDocument() |
+| `@testing-library/user-event` | Simulates real user interaction (clicks, typing) |
+| `vite-tsconfig-paths` | Makes Vitest understand your @/* import alias from tsconfig.json |
+| `@vitest/coverage-v8` | Optional - code coverage reporting |
+
+And add two config files at the project root.
+
+`vitest.config.mts` and `vitest.setup.ts`. Setup file runs once before your test suite and extends Vitest's expect with the jest-dom matchers.
+
+Add test scripts in ``package.json`` in the ``"scripts"`` block:
+
+```json
+"test": "vitest",
+"test:run": "vitest run",
+"test:coverage": "vitest run --coverage"
+```
+
+### Step 7: Write a test
+
+See: `components/ui/button/button.test.tsx`.
+
+Then run it:
+
+```bash
+pnpm test
+```
+
+Possible error you might run into: `webidl.util.markAsUncloneable is not a function` caused by jsdom 30 requiring `Node 22`.
+
+First check your node version:
+
+`node -v`
+
+If that's not v22.x or higher, fix:
+
+```bash
+nvm install 22 # if not installed already
+nvm alias default 22
 ```
 
 ---
