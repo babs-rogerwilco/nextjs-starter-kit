@@ -1,0 +1,86 @@
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
+
+.root {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: v.$space-2;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.trigger,
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$space-1;
+  padding: v.$space-2 v.$space-3;
+  border-radius: v.$radius-sm;
+  background: transparent;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  font-size: v.$font-size-sm;
+  color: v.$color-neutral-900;
+  cursor: pointer;
+  text-decoration: none;
+
+  @include m.focus-ring;
+
+  &:hover {
+    color: v.$color-brand-red;
+  }
+}
+
+.trigger[data-state='open'] {
+  color: v.$color-brand-red;
+}
+
+.chevron {
+  transition: transform v.$transition-fast;
+}
+
+.trigger[data-state='open'] .chevron {
+  transform: rotate(180deg);
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: v.$space-4;
+  background: v.$color-white;
+  border-radius: v.$radius-md;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 12%);
+}
+
+.viewportPosition {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.viewport {
+  position: relative;
+  width: var(--radix-navigation-menu-viewport-width);
+  min-width: 200px;
+  height: var(--radix-navigation-menu-viewport-height);
+  overflow: hidden;
+  border-radius: v.$radius-md;
+  background: v.$color-white;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 12%);
+  transition:
+    width v.$transition-base,
+    height v.$transition-base;
+}

@@ -1,0 +1,10 @@
+// This file is for the Storybook stories of the NavigationMenu component. It contains the styles specific to the stories and is not used in the actual application.
+.linkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 200px;
+}
