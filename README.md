@@ -1,6 +1,6 @@
 # nextjs-starter-kit
 
-A feature-based Next.js starter — App Router, TypeScript, Sass, Storybook,
+A feature-based [Next.js](https://nextjs.org) starter — App Router, TypeScript, Sass, Storybook,
 Vitest + React Testing Library, Radix UI (primitives only, no theme
 package), Zod, pnpm. Layout inspiration: isuzu.co.za, restructured as
 `(vehicles)` / `(shopping-tools)` route groups.
@@ -158,12 +158,6 @@ nvm alias default 22
 ```
 
 ---
-
-The CLI will also ask about the React Compiler and whether to generate an
-`AGENTS.md` — both are safe to accept or skip; neither affects anything
-below.
-
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
