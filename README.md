@@ -93,6 +93,18 @@ const nextConfig: NextConfig = {
 export default nextConfig;
 ```
 
+### Step 4: Install Radix UI (primitives only, no theme package)
+
+```bash
+pnpm add radix-ui
+```
+
+Used like this:
+
+```bash
+import { Dialog, Slot } from 'radix-ui';
+```
+
 ---
 
 The CLI will also ask about the React Compiler and whether to generate an
