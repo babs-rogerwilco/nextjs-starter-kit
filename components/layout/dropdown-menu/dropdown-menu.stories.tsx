@@ -10,7 +10,7 @@ import {
 } from './dropdown-menu';
 
 const meta = {
-  title: 'UI/DropdownMenu',
+  title: 'Layout/DropdownMenu',
   component: DropdownMenu,
   tags: ['autodocs'],
 } satisfies Meta<typeof DropdownMenu>;
