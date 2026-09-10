@@ -1,0 +1,64 @@
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 50%);
+  animation: fade-in v.$transition-base;
+}
+
+.content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(90vw, 480px);
+  max-height: 85vh;
+  overflow-y: auto;
+  background: v.$color-white;
+  border-radius: v.$radius-md;
+  padding: v.$space-6;
+  box-shadow: 0 10px 40px rgb(0 0 0 / 15%);
+
+  @include m.focus-ring;
+}
+
+.title {
+  margin: 0 0 v.$space-4;
+  font-size: v.$font-size-lg;
+  font-weight: 700;
+}
+
+.closeButton {
+  position: absolute;
+  top: v.$space-4;
+  right: v.$space-4;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: v.$radius-sm;
+  background: transparent;
+  color: v.$color-neutral-600;
+  cursor: pointer;
+
+  @include m.focus-ring;
+
+  &:hover {
+    background: v.$color-neutral-100;
+    color: v.$color-neutral-900;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
