@@ -58,6 +58,12 @@ Use the space bar to select sass (and anything else listed), then Enter to confi
 - Rename `app/globals.css`-> `app/globals.scss`
 - Update import in `app/layout.tsx`
 
+Create `styles.d.ts` at the project root. This tells TypeScript "any bare import of a .scss file is valid, no exported types", with the following content:
+
+```typescript
+declare module '*.scss';
+```
+
 ### Step3. Create shared Sass abstracts
 
 Every component's .module.scss should be able to reference the same color/spacing tokens without writing ../../../styles/variables relative paths everywhere.
@@ -156,6 +162,38 @@ If that's not v22.x or higher, fix:
 nvm install 22 # if not installed already
 nvm alias default 22
 ```
+
+### Step 8: Add Storybook
+
+```bash
+pnpm add -D storybook @storybook/nextjs
+```
+
+Some builds might require manual approval. Add relevant build inside `pnpm-workspace.yaml`:
+
+```yaml
+allowBuilds:
+  esbuild: true
+```
+or run `pnpm approve-builds`.
+
+Add relevant sripts in the `package.json` file, for running Storybook:
+
+```json
+"storybook": "storybook dev -p 6006",
+"build-storybook": "storybook build",
+```
+
+Create `.storybook/main.ts` and `.storybook/preview.ts` files in the root directory.
+
+Create stories, e.g. Create `components/ui/button/button.stories.tsx`.
+
+Save and run:
+
+```bash
+pnpm storybook
+```
+
 
 ---
 
