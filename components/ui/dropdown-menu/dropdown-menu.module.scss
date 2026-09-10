@@ -1,0 +1,76 @@
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: v.$radius-full;
+  background: transparent;
+  color: v.$color-neutral-900;
+  cursor: pointer;
+
+  @include m.focus-ring;
+
+  &:hover {
+    background: v.$color-neutral-100;
+  }
+}
+
+.content {
+  min-width: 200px;
+  background: v.$color-white;
+  border-radius: v.$radius-md;
+  padding: v.$space-2;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 15%);
+  animation: fade-in v.$transition-fast;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: v.$space-2 v.$space-3;
+  border-radius: v.$radius-sm;
+  font-size: v.$font-size-sm;
+  color: v.$color-neutral-900;
+  cursor: pointer;
+  outline: none;
+
+  &[data-highlighted] {
+    background: v.$color-neutral-100;
+  }
+
+  &[data-disabled] {
+    color: v.$color-neutral-300;
+    cursor: not-allowed;
+  }
+}
+
+.label {
+  padding: v.$space-2 v.$space-3;
+  font-size: v.$font-size-sm;
+  font-weight: 700;
+  color: v.$color-neutral-600;
+}
+
+.separator {
+  height: 1px;
+  margin: v.$space-2 0;
+  background: v.$color-neutral-100;
+  border: none;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
