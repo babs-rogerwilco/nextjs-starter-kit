@@ -26,14 +26,7 @@ pnpm test       # vitest watch mode (To run tests)
 ### Step 1. Scaffold with create-next-app
 
 ```bash
-pnpm create next-app@latest nextjs-starter-kit \
-  --typescript \
-  --no-tailwind \
-  --eslint \
-  --app \
-  --no-src-dir \
-  --import-alias "@/*" \
-  --use-pnpm
+pnpm create next-app@latest nextjs-starter-kit --typescript --no-tailwind --eslint --app --no-src-dir --import-alias "@/*" --use-pnpm
 
 cd nextjs-starter-kit
 ```
