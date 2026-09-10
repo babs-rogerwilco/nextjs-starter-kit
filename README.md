@@ -15,7 +15,7 @@ package), Zod, pnpm. Layout inspiration: isuzu.co.za, restructured as
 ```bash
 pnpm install
 pnpm dev        # http://localhost:3000 (To see app)
-pnpm storybook  # http://localhost:6006 (To see app stories)
+pnpm storybook  # http://localhost:6006 (To see component stories in isolation)
 pnpm test       # vitest watch mode (To run tests)
 ```
 
