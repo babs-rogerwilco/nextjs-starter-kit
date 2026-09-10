@@ -12,7 +12,7 @@ import {
 import styles from './navigation-menu.stories.module.scss';
 
 const meta = {
-  title: 'Layout/NavigationMenu',
+  title: 'Shared/NavigationMenu',
   component: NavigationMenu,
   tags: ['autodocs'],
 } satisfies Meta<typeof NavigationMenu>;
